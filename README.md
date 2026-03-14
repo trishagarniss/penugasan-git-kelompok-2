@@ -1,4 +1,4 @@
-# Penugasan Git dan Version Control Kelompok 2
+# Penugasan Git dan Version Control
 
 Repositori ini digunakan untuk pengerjaan tugas kolaborasi menggunakan sistem kontrol versi (Git) dan GitHub. Proyek ini memisahkan pengembangan *frontend* dan *backend* ke dalam *branch* yang berbeda untuk mensimulasikan alur kerja pengembangan perangkat lunak secara tim.
 
