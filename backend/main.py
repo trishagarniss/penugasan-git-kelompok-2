@@ -7,7 +7,7 @@ app = FastAPI(
 )
 
 # Variabel penampung data
-items = []
+items = {}
 
 # Skema Data
 class Item(BaseModel):
@@ -29,21 +29,23 @@ def get_items():
 # POST: untuk menambahkan data ke list items
 @app.post("/items")
 def create_item(item: Item):
-    items.append(item.model_dump()) # Masukin ke list
+    items[item.id] = item.model_dump() # Masukin ke dictionary
     return {"message": "Data masuk!", "data": item}
 
 @app.put("/items")
 def put_item(item: Item):
-    for i in items :
-        if i["id"] == item.id :
-            i["name"] = item.name
-            return {"message": "Data diubah!", "data": item}
-    return {"message": "Tidak Ada Data Tersebut Didalam List", "data": item}
+    if item.id in items :
+        items[item.id]["nama"] = item.name
+        return {"message": "Data diubah!", "data": item}
+    else :
+        return {"message": "Tidak Ada Data Tersebut Didalam List", "data": item}
 
 @app.delete("/items")
 def delete_item(item: Item):
-    for i in range(len(items)) :
-        if items[i]["id"] == item.id :
-            items.pop(i)
-            return {"message": "Data dihapus!", "data": item}
-    return {"message": "Tidak Ada Data Tersebut Didalam List", "data": item}
+    if item.id in items :
+        del items[item.id]
+        return {"message": "Data dihapus!", "data": item}
+    else :
+        return {"message": "Tidak Ada Data Tersebut Didalam List", "data": item}
+            
+    
