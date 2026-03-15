@@ -38,7 +38,7 @@ def create_item(item: Item):
 def put_item(item: Item):
     if item.id in items :
         item_lama = items[item.id]
-        items[item.id]["nama"] = item.name
+        items[item.id] = item
         return {"message": "Data diubah!", "data lama": item_lama, "data baru" : item}
     else :
         return {"message": "Tidak Ada Data Tersebut Didalam List", "data": item}
