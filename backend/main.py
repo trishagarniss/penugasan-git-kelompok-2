@@ -29,7 +29,9 @@ def get_items():
 # POST: untuk menambahkan data ke list items
 @app.post("/items")
 def create_item(item: Item):
-    items[item.id] = item.model_dump() # Masukin ke dictionary
+    if item.id in items : # Cek ID sudah ada atau belum
+        return {"message": "ID sudah ada, Silahkan pilih ID yang lain", "data": item}
+    items[item.id] = item.model_dump() # Ubah class ke dictionary lalu Masukin ke dictionary Items
     return {"message": "Data masuk!", "data": item}
 
 @app.put("/items")
