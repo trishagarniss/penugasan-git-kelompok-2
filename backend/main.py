@@ -44,9 +44,10 @@ def put_item(item: Item):
         return {"message": "Tidak Ada Data Tersebut Didalam List", "data": item}
 
 @app.delete("/items")
-def delete_item(item: Item):
-    if item.id in items :
-        del items[item.id]
+def delete_item(id: int):
+    if id in items :
+        item = items[id]
+        del items[id]
         return {"message": "Data dihapus!", "data": item}
     else :
         return {"message": "Tidak Ada Data Tersebut Didalam List", "data": item}
