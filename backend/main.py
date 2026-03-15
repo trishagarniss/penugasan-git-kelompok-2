@@ -37,8 +37,9 @@ def create_item(item: Item):
 @app.put("/items")
 def put_item(item: Item):
     if item.id in items :
+        item_lama = items[item.id]
         items[item.id]["nama"] = item.name
-        return {"message": "Data diubah!", "data": item}
+        return {"message": "Data diubah!", "data lama": item_lama, "data baru" : item}
     else :
         return {"message": "Tidak Ada Data Tersebut Didalam List", "data": item}
 
