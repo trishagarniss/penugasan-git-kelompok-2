@@ -37,11 +37,13 @@ def put_item(item: Item):
     for i in items :
         if i.id == item.id :
             item.name = i.name
-    return {"message": "Data diubah!", "data": item}
+            return {"message": "Data diubah!", "data": item}
+    return {"message": "Tidak Ada Data Tersebut Didalam List", "data": item}
 
 @app.delete("/items")
 def delete_item(item: Item):
     for i in range(len(items)) :
         if items[i].id == item.id :
             items.pop(i)
-    return {"message": "Data diubah!", "data": item}
+            return {"message": "Data dihapus!", "data": item}
+    return {"message": "Tidak Ada Data Tersebut Didalam List", "data": item}
