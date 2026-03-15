@@ -1,7 +1,10 @@
 from fastapi import FastAPI
 from pydantic import BaseModel
 
-app = FastAPI()
+app = FastAPI(
+    title="API Kelompok 2",
+    description="Backend API sederhana untuk manajemen items"
+)
 
 # Variabel penampung data
 items = []
@@ -10,7 +13,14 @@ items = []
 class Item(BaseModel):
     id: int
     name: str
-    
+
+@app.get("/", tags=["General"])
+def read_root():
+    return {
+        "message": "Selamat datang di API Kelompok 2!",
+        "petunjuk": "Tambahkan /docs di akhir URL untuk melihat dokumentasi interaktif."
+    }
+
 # GET: untuk melihat isi list items
 @app.get("/items")
 def get_items():
