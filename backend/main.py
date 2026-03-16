@@ -41,7 +41,7 @@ def put_item(item: Item):
         items[item.id] = item
         return {"message": "Data diubah!", "data lama": item_lama, "data baru" : item}
     else :
-        return {"message": "Tidak Ada Data Tersebut Didalam List", "data": item}
+        return {"message": "Tidak ada data tersebut di dalam list!", "data": item}
 
 @app.delete("/items")
 def delete_item(id: int):
@@ -50,6 +50,4 @@ def delete_item(id: int):
         del items[id]
         return {"message": "Data dihapus!", "data": item}
     else :
-        return {"message": "Tidak Ada Data Tersebut Didalam List", "data": item}
-            
-    
+        return {"message": "Tidak ada data tersebut di dalam list!", "data": item}
