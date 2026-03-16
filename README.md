@@ -15,6 +15,6 @@ Repositori ini digunakan untuk pengerjaan tugas kolaborasi menggunakan sistem ko
 ## 🗂️ Struktur Branch
 
 Repositori ini terdiri dari tiga *branch* utama:
-- `main` : Branch utama yang memuat dokumentasi proyek (README.md).
+- `main` : Branch utama yang memuat dokumentasi proyek.
 - `frontend` : Branch khusus pengembangan antarmuka pengguna (UI) menggunakan **Next.js & React**.
 - `backend` : Branch khusus pengembangan server dan API menggunakan **Python & Poetry**.
