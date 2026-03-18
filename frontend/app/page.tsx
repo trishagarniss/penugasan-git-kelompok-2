@@ -1,30 +1,15 @@
-<<<<<<< Updated upstream
-import { Header } from './components/Header';
-import { Footer } from './components/Footer';
-
-export default function App() {
-  return (
-    <div className="min-h-screen flex flex-col" style={{ backgroundColor: '#F6F4F0' }}>
-      <Header />
-      
-      {/* Empty main content area */}
-      <main className="flex-1"></main>
-      
-      <Footer />
-    </div>
-=======
 import React from 'react';
-import { PageWrapper, Navbar, MainLayout, HeroContent, StatsRow, MockupCard } from '../components/HomeUI';
+
+//header footer kesan elias
+import { Header } from '../components/Header';
+import { Footer } from '../components/Footer';
+
+//ui kunto
+import { PageWrapper, MainLayout, HeroContent, StatsRow, MockupCard } from '../components/HomeUI';
 
 export default function HomePage() {
   
-  const navData = {
-    brandName: "Kelompok 2",
-    links: ["Beranda", "Layanan Medis", "Jadwal Dokter", "Tentang Kami"],
-    loginText: "Masuk",
-    registerText: "Daftar Pasien"
-  };
-
+  // DATA KONTEN UI MU
   const heroData = {
     badge: "Sistem Informasi Kesehatan",
     titleLine1: "Revolusi Layanan",
@@ -48,19 +33,14 @@ export default function HomePage() {
     serverStatus: "Online"
   };
 
-  // RENDER TAMPILAN
+  // RENDER TAMPILAN GABUNGAN
   return (
     <PageWrapper>
       
-      {/* Bagian Navigasi Atas */}
-      <Navbar 
-        brandName={navData.brandName}
-        navLinks={navData.links}
-        loginText={navData.loginText}
-        registerText={navData.registerText}
-      />
+      {/* HEADER KESAN */}
+      <Header />
 
-      {/* Bagian Konten Utama */}
+      {/* HOMEPAGE KUNTO */}
       <MainLayout>
         
         {/* Kolom Kiri: Teks dan Tombol */}
@@ -72,7 +52,6 @@ export default function HomePage() {
           primaryBtn={heroData.btnPrimary}
           secondaryBtn={heroData.btnSecondary}
         >
-          {/* Angka Statistik dimasukkan ke dalam HeroContent */}
           <StatsRow stats={statsData} />
         </HeroContent>
 
@@ -86,7 +65,10 @@ export default function HomePage() {
         />
 
       </MainLayout>
+
+      {/* FOOTER ELIAS */}
+      <Footer />
+
     </PageWrapper>
->>>>>>> Stashed changes
   );
 }
