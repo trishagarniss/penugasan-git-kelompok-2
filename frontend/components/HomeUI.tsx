@@ -1,56 +1,47 @@
-// File: src/components/HomeUI.tsx
 import React from 'react';
 
-// 1. Wrapper Utama (Tema Putih Bersih/Light Mode)
+// 1. Wrapper Utama
 export const PageWrapper = ({ children }: { children: React.ReactNode }) => (
-  <div className="min-h-screen bg-slate-50 text-slate-900 font-sans overflow-hidden flex flex-col">
+  <div className="min-h-screen bg-[#F6F4F0] text-slate-900 font-sans flex flex-col overflow-x-hidden">
     {children}
   </div>
 );
 
-// 2. Komponen Navbar (Dominasi Putih & Biru)
-export const Navbar = ({ brandName, navLinks, loginText, registerText }: { brandName: string, navLinks: string[], loginText: string, registerText: string }) => (
-  <nav className="flex justify-between items-center py-6 px-8 md:px-16 border-b border-slate-200 bg-white/70 backdrop-blur-md sticky top-0 z-50">
-    <div className="flex items-center gap-2">
-      <div className="w-8 h-8 rounded-lg bg-gradient-to-br from-blue-600 to-pink-500"></div>
-      <span className="text-2xl font-bold tracking-wide text-slate-900">{brandName}<span className="text-pink-500">.</span></span>
-    </div>
-    <ul className="hidden md:flex space-x-8 text-sm font-bold text-slate-500">
-      {navLinks.map((link, idx) => (
-        <li key={idx} className="hover:text-blue-600 cursor-pointer transition-colors">{link}</li>
-      ))}
-    </ul>
-    <div className="flex items-center gap-4">
-      <button className="hidden md:block text-sm font-bold text-slate-600 hover:text-blue-600 transition-colors">{loginText}</button>
-      <button className="bg-blue-600 hover:bg-blue-700 text-white px-6 py-2.5 rounded-full text-sm font-bold shadow-lg shadow-blue-500/30 transition-all transform hover:scale-105">{registerText}</button>
-    </div>
-  </nav>
-);
-
-// 3. Layout Utama dengan Efek Glowing Lembut
+// 2. Layout Utama
 export const MainLayout = ({ children }: { children: React.ReactNode }) => (
-  <main className="flex-1 flex flex-col lg:flex-row items-center justify-between px-8 md:px-16 py-12 lg:py-0 relative">
-    <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-blue-400/10 rounded-full blur-[100px] pointer-events-none"></div>
-    <div className="absolute bottom-1/4 right-1/4 w-96 h-96 bg-pink-400/10 rounded-full blur-[100px] pointer-events-none"></div>
-    {children}
+  <main className="flex-1 relative w-full flex items-center">
+    
+    {/* Efek Latar Belakang (Dipisahkan agar tidak merusak layout Flexbox) */}
+    <div className="absolute top-0 left-0 w-full h-full overflow-hidden pointer-events-none z-0">
+      <div className="absolute top-10 left-10 w-96 h-96 bg-blue-400/20 rounded-full blur-[100px]"></div>
+      <div className="absolute bottom-10 right-10 w-96 h-96 bg-pink-400/20 rounded-full blur-[100px]"></div>
+    </div>
+
+    {/* Kontainer Pembungkus Konten Utama */}
+    <div className="w-full max-w-7xl mx-auto px-6 md:px-12 py-16 lg:py-24 flex flex-col lg:flex-row items-center justify-between gap-16 relative z-10">
+      {children}
+    </div>
+    
   </main>
 );
 
-// 4. Komponen Teks Hero & Tombol (Aksen Biru & Pink)
+// 3. Komponen Teks Hero & Tombol
 export const HeroContent = ({ badge, titleLine1, titleLine2, description, primaryBtn, secondaryBtn, children }: any) => (
-  <div className="w-full lg:w-1/2 space-y-8 z-10">
-    <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full border border-blue-200 bg-blue-50 text-blue-700 text-xs font-bold tracking-wider uppercase">
+  <div className="w-full lg:w-1/2 flex flex-col space-y-8">
+    <div className="inline-flex items-center self-start gap-2 px-4 py-2 rounded-full border border-blue-200 bg-blue-50 text-blue-700 text-xs font-bold tracking-wider uppercase">
       <span className="w-2 h-2 rounded-full bg-blue-600 animate-pulse"></span>
       {badge}
     </div>
-    <h1 className="text-5xl md:text-7xl font-extrabold leading-tight text-slate-900">
+    <h1 className="text-5xl md:text-6xl lg:text-7xl font-extrabold leading-tight text-slate-900">
       {titleLine1} <br />
       <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-pink-500">
         {titleLine2}
       </span>
     </h1>
-    <p className="text-slate-600 text-lg md:text-xl max-w-lg leading-relaxed font-medium">{description}</p>
-    <div className="flex flex-wrap gap-4 pt-4">
+    <p className="text-slate-600 text-lg md:text-xl max-w-lg leading-relaxed font-medium">
+      {description}
+    </p>
+    <div className="flex flex-wrap gap-4 pt-2">
       <button className="bg-gradient-to-r from-blue-600 to-blue-500 hover:from-blue-700 hover:to-blue-600 text-white px-8 py-4 rounded-full font-bold shadow-xl shadow-blue-600/20 transition-all transform hover:-translate-y-1">{primaryBtn}</button>
       <button className="bg-white border border-slate-200 hover:border-slate-300 hover:bg-slate-50 text-slate-700 px-8 py-4 rounded-full font-bold shadow-sm transition-all">{secondaryBtn}</button>
     </div>
@@ -58,9 +49,9 @@ export const HeroContent = ({ badge, titleLine1, titleLine2, description, primar
   </div>
 );
 
-// 5. Komponen Baris Statistik (Teks Gelap)
+// 4. Komponen Baris Statistik (Teks Gelap)
 export const StatsRow = ({ stats }: { stats: { value: string, label: string }[] }) => (
-  <div className="flex gap-12 pt-8 border-t border-slate-200 mt-8">
+  <div className="flex flex-wrap gap-8 md:gap-12 pt-8 border-t border-slate-200/80 mt-4">
     {stats.map((stat, idx) => (
       <div key={idx}>
         <h3 className="text-3xl font-extrabold text-slate-900">{stat.value}</h3>
@@ -70,10 +61,10 @@ export const StatsRow = ({ stats }: { stats: { value: string, label: string }[] 
   </div>
 );
 
-// 6. Komponen Kartu Mockup Layar (Glassmorphism Putih)
+// 5. Komponen Kartu Mockup Layar (Kolom Kanan)
 export const MockupCard = ({ doctorName, specialty, queueCount, estTime, serverStatus }: any) => (
-  <div className="w-full lg:w-1/2 flex justify-center lg:justify-end mt-16 lg:mt-0 z-10">
-    <div className="relative w-full max-w-md p-6 bg-white/80 backdrop-blur-xl border border-slate-200 rounded-3xl shadow-2xl shadow-blue-900/5">
+  <div className="w-full lg:w-1/2 flex justify-center lg:justify-end">
+    <div className="relative w-full max-w-md p-6 bg-white/90 backdrop-blur-xl border border-slate-200 rounded-3xl shadow-2xl shadow-blue-900/10">
       <div className="absolute -top-4 -right-4 bg-pink-500 text-white text-xs font-bold px-4 py-1.5 rounded-full shadow-lg shadow-pink-500/30">
         Live Update
       </div>
