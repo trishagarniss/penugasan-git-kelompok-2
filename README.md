@@ -1,19 +1,20 @@
-# 🎨 Frontend - Penugasan Git Kelompok 2
+# Penugasan Git dan Version Control
 
-Branch ini khusus digunakan untuk pengembangan antarmuka pengguna (*frontend*) menggunakan **Next.js** dan **React**.
+Repositori ini digunakan untuk pengerjaan tugas kolaborasi menggunakan sistem kontrol versi (Git) dan GitHub. Proyek ini memisahkan pengembangan *frontend* dan *backend* ke dalam *branch* yang berbeda untuk mensimulasikan alur kerja pengembangan perangkat lunak secara tim.
 
-## 👨‍💻 Tim Frontend
-- **Fathul Fajar Nur Ikhsan** (Modifikasi Header)
-- **Kunto Rossindu Hidayattullah** (Setup Next.js & Modifikasi Body)
-- **Zaki Elias Al Haqqanikudus** (Modifikasi Footer)
+## 👥 Anggota Kelompok 2
 
-## 🛠️ Prasyarat (Prerequisites)
-Sebelum menjalankan proyek ini di laptop masing-masing, pastikan sudah menginstal:
-1. [Node.js](https://nodejs.org/)
-2. Git
+| Nama Lengkap | NIM | Peran / Tugas |
+| :--- | :---: | :--- |
+| **Trisha Garnis Wahningyun** | L0224012 | Inisialisasi Repositori & Backend (GET, POST) |
+| **Alvian Damar Budhi Hernowo** | L0224014 | Setup Poetry & Backend (PUT, DELETE) |
+| **Fathul Fajar Nur Ikhsan** | L0224018 | Frontend (Modifikasi Header) |
+| **Kunto Rossindu Hidayattullah** | L0224020 | Setup Next.js & Frontend (Modifikasi Body) |
+| **Zaki Elias Al Haqqanikudus** | L0224039 | Frontend (Modifikasi Footer) |
 
-## 🚀 Cara Menjalankan Frontend Lokal
-1. Buka terminal dan pastikan sudah masuk ke folder proyek `penugasan-git-kelompok-2`.
-2. Pindah ke branch frontend:
-   ```bash
-   git checkout frontend
+## 🗂️ Struktur Branch
+
+Repositori ini terdiri dari tiga *branch* utama:
+- `main` : Branch utama yang memuat dokumentasi proyek.
+- `frontend` : Branch khusus pengembangan antarmuka pengguna (UI) menggunakan **Next.js & React**.
+- `backend` : Branch khusus pengembangan server dan API menggunakan **Python & Poetry**.
