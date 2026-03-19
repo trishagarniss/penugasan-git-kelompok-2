@@ -1,0 +1,22 @@
+# --- VS Code ---
+.vscode/
+
+# --- Python & Poetry ---
+__pycache__/
+*.py[cod]
+*$py.class
+.venv/
+venv/
+ENV/
+.env
+.python-version
+
+# --- Node.js (Frontend) ---
+node_modules/
+.next/
+out/
+build/
+.DS_Store
+
+# --- OS ---
+Thumbs.db
